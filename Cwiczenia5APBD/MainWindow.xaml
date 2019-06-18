@@ -1,0 +1,42 @@
+﻿<Window x:Class="Cwiczenia5APBD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cwiczenia5APBD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.Row="0" Grid.ColumnSpan="2" Margin="0 0 0 10" >
+            <Label MouseLeftButtonDown="Label_MouseLeftButtonDown">Plik</Label>
+        </Menu>
+
+        <Label Grid.Row="1" FontSize="29" Margin="19 0 0 0"> Lista Studentów</Label>
+
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" Margin="20 50 20 0" Name="gridOfStudents" SelectionMode="Extended" AutoGenerateColumns="False" MouseDoubleClick="GridOfStudents_MouseDoubleClick" MouseLeftButtonUp="GridOfStudents_MouseLeftButtonUp">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding nazwisko}"/>
+                <DataGridTextColumn Header="Imie" Binding="{Binding imie}" />
+                <DataGridTextColumn Header="Numer Indeksu" Binding="{Binding nrindeksu}"/>
+                <DataGridTextColumn Header="Adress" Binding="{Binding adress}"/>
+                <DataGridTextColumn Header="Studia" Binding="{Binding idstudia}"          />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Grid.Row="2" Margin="20 0 0 0" Name="XLabel">Wybrałeś x studentów</Label>
+
+        <Button Grid.Column="2" Grid.Row="2" Margin="230 40 190 10" Click="Dodaj_Button_Click">Dodaj</Button>
+        <Button Grid.Column="2" Grid.Row="2" Margin="400 40 20 10" Click="Usun_Button_Click">Usuń</Button>
+    </Grid>
+</Window>
